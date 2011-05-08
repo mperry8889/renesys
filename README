@@ -1,0 +1,51 @@
+Matt Perry
+matt@unshift.net
+
+The problem:
+
+    Write a program that reports the longest sequence of words that appear
+    in alphabetical order in a given input text, with at most one
+    exception (break in ascending alphabetical order).
+
+    For example, the longest such sequence in the preceding sentence is
+
+    "a given input text, with at most one"
+
+    You may use any programming language you like, any sources you like,
+    and make any further clarifying assumptions you like, as long as you
+    adequately document them. We are looking for good, creative, sensible,
+    correct code, and a good writeup to help us understand your solution
+    and how you arrived at it.
+
+    The challenge should take no more than a few hours to complete; if you
+    find yourself taking substantially longer, please solve a subproblem
+    and send in your results.
+
+
+My assumptions:
+
+ - sequences cannot start with an exception.  So "Xavier Abraham Bart" would be "Abraham Bart"
+
+
+My approach:
+
+ - begin by creating an array of comparisons for each element with the one proceeding it.  
+   So for ["A", "B", "C"], create an array of comparisons between ("A", "B"), ("B", "C"): [True, True].
+   The comparison is checking if the words go in ascending alphabetical order.
+   
+ - take the resultant comparison array, and simply find the longest sequence of True values in it,
+   with at most one False.
+
+I used somewhat of a test-driven approach here, since TDD is good for puzzle-like problems.
+I included the examples given by e-mail as unit tests.
+   
+  
+To run:
+
+  $ python sequence.py "Foo Bar Baz Bat"   
+  Bar Baz Bat
+
+  
+To run the tests:
+
+  $ python test.py
